@@ -12,6 +12,7 @@
 * @TODO: add cron info / hide /vendor/ from web 
 * add normal PSR classes load
 * add telegram api updates
+* add docs
 
 ## Configuration:
 
