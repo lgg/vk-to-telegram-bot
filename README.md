@@ -7,7 +7,8 @@
 ## Installation [production]
 
 * `composer install --no-dev --optimize-autoloader`
-* then configure Config.php and remove it from git `git rm --cached Config.php` (it will help to easily get updates by `git pull`)
+* rename Config-sample.php to Config.php
+* then configure Config.php
 * !IMPORTANT! watch repository for 'config' updates
 * @TODO: add cron info / hide /vendor/ from web 
 * add normal PSR classes load

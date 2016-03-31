@@ -1,6 +1,6 @@
 <?php
 require_once "vendor/autoload.php";
-require_once "Config.php";
+require_once "Config-sample.php";
 require_once "functions.php";
 require_once "VkApi.php";
 
