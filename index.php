@@ -9,7 +9,7 @@ $response = VkApi::request(VkApi::getMethodUrl("wall.get", Config::getVkParams()
 
 //Get last posts which we have sent to Telegram
 if (!file_exists(Config::getFileLast())) {
-    file_put_contents(Config::getFileLast(), "{}");
+    file_put_contents(Config::getFileLast(), "[]");
 }
 $last = json_decode(file_get_contents(Config::getFileLast()), true);
 
