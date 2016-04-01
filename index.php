@@ -13,6 +13,12 @@ if (!file_exists(Config::getFileLast())) {
 }
 $last = json_decode(file_get_contents(Config::getFileLast()), true);
 
+//Check if we have some troubles, while reading from last.json
+if(empty($last)){
+    addLog("For some reason ".Config::getFileLast()." is empty or we can't properly read from it");
+    return false;
+}
+
 //Check posts
 $parsed_ids = [];
 $key = count($response["items"]) - 1;
