@@ -56,7 +56,7 @@ while ($key >= 0) {
 
 //Save log
 if ($parsed_ids == $last) {
-    addLog("No new posts");
+    //addLog("No new posts");
 } else {
     $log = "Add $posted new posts: " . implode(",", $posted["ids"]) . " | from last.json: " . implode(",", $last);
     addLog($log);
