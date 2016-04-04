@@ -19,6 +19,12 @@ if(empty($last)){
     return false;
 }
 
+//Check if we have no posts
+if(empty($response["items"])){
+    addLog("Fail loading data from VK");
+    return false;
+}
+
 //Check posts
 $parsed_ids = [];
 $key = count($response["items"]) - 1;
