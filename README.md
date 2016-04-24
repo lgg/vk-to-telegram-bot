@@ -26,14 +26,6 @@
 * Files:
     * $file_log - file to save logs
     * $file_last - file to save last posts
-    
-
-## TODO:
-
-* add import to few channels
-* add parsing from few groups
-* add extended version
-* add i18n
 
 ## Links and Copyrights:
 
