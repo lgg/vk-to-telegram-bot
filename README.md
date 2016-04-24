@@ -7,13 +7,10 @@
 ## Installation [production]
 
 * `composer install --no-dev --optimize-autoloader`
+* `composer dump-autoload`
 * rename Config-sample.php to Config.php
 * then configure Config.php
 * !IMPORTANT! watch repository for 'config' updates
-* @TODO: add cron info / hide /vendor/ from web 
-* add normal PSR classes load
-* add telegram api updates
-* add docs
 
 ## Configuration:
 
@@ -26,7 +23,7 @@
 * Files:
     * $file_log - file to save logs
     * $file_last - file to save last posts
-
+    
 ## Links and Copyrights:
 
 * LICENSE: MIT
