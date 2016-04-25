@@ -4,6 +4,7 @@
 
 * Bot posting only links could be found in master branch
 * Bot posting full posts(text and images) could be found in extended branch
+* Also you can find answers and help [here](./faq.md)
 
 ## Requirements:
 
@@ -11,11 +12,17 @@
 
 ## Installation [production]
 
+* !IMPORTANT! you need SSL certificate on your server
 * `composer install --no-dev --optimize-autoloader`
 * `composer dump-autoload`
 * rename Config-sample.php to Config.php
 * then configure Config.php
 * !IMPORTANT! watch repository for 'config' updates
+* add task to cron(usually you have crontab on your server)
+    * if you have crontab - run ```crontab -e``` from web user(usually webadmin or www-data)
+    * add ```*/5 * * * * cd /var/www/console/telegrambot && php index.php >> /dev/null 2>&1```
+    * you should change cd command to path where your bot is located
+    * this will run bot every 5 minutes, if you need every minute check - replace ```*/5``` to ```*```
 
 ## Configuration:
 
