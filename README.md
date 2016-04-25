@@ -2,8 +2,9 @@
 
 ## Info
 
-* Bot posting only links could be found in master branch
-* Bot posting full posts(text and images) could be found in extended branch
+* Bot manager with posting to few channels from few groups/users can be found in master branch
+* Bot posting only links can be found in link branch
+* Bot posting full posts(text and images) can be found in extended branch
 * Also you can find answers and help [here](./faq.md)
 
 ## Requirements:
