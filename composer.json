@@ -1,5 +1,13 @@
 {
-    "require": {
-        "longman/telegram-bot": "^0.28.0"
+  "require": {
+    "longman/telegram-bot": "^0.28.0"
+  },
+  "autoload": {
+    "psr-0": {
+      "Log": "app/",
+      "Config": "app/",
+      "TelegramApi": "app/",
+      "VkApi": "app/"
     }
+  }
 }

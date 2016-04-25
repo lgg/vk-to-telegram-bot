@@ -1,8 +1,5 @@
 <?php
 require_once "vendor/autoload.php";
-require_once "Config.php";
-require_once "functions.php";
-require_once "VkApi.php";
 
 //Get vk response
 $response = VkApi::request(VkApi::getMethodUrl("wall.get", Config::getVkParams()))["response"];
@@ -14,14 +11,14 @@ if (!file_exists(Config::getFileLast())) {
 $last = json_decode(file_get_contents(Config::getFileLast()), true);
 
 //Check if we have some troubles, while reading from last.json
-if(empty($last)){
-    addLog("For some reason ".Config::getFileLast()." is empty or we can't properly read from it");
+if (empty($last)) {
+    Log::addLog("For some reason " . Config::getFileLast() . " is empty or we can't properly read from it");
     return false;
 }
 
 //Check if we have no posts
-if(empty($response["items"])){
-    addLog("Fail loading data from VK");
+if (empty($response["items"])) {
+    Log::addLog("Fail loading data from VK");
     return false;
 }
 
@@ -32,6 +29,7 @@ $posted = [
     "counter" => 0,
     "ids" => []
 ];
+$telegram = new TelegramApi();
 while ($key >= 0) {
     $post = $response["items"][$key];
     //If we have matches - ignore them
@@ -40,10 +38,10 @@ while ($key >= 0) {
         $message = "https://vk.com/wall" . Config::getGroupId() . "_" . $post["id"];
 
         if (isset($post["text"])) {
-            $message = getTextPreview($post["text"]) . $message;
+            $message = VkApi::getTextPreview($post["text"]) . $message;
         }
 
-        sendMessageAsUrl($message);
+        $telegram->sendMessageAsUrl($message);
 
         $posted["counter"]++;
         array_push($posted["ids"], $post["id"]);
@@ -55,12 +53,13 @@ while ($key >= 0) {
 }
 
 //Save log
-if ($parsed_ids == $last) {
-    //addLog("No new posts");
-} else {
-    $log = "Add $posted new posts: " . implode(",", $posted["ids"]) . " | from last.json: " . implode(",", $last);
-    addLog($log);
+if ($posted["counter"] > 0) {
+    $log = "Add " . $posted["counter"] . " new posts: " . implode(",", $posted["ids"]) . " | from " . Config::getFileLast() . ": " . implode(",", $last);
+    Log::addLog($log);
 
     //Save last
-    saveLast($parsed_ids);
+    $posts = array_merge($last, $posted["ids"]);
+    Log::saveLast($posts);
+} else {
+    //addLog("No new posts");
 }
