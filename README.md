@@ -1,4 +1,9 @@
-# VK to Telegram auto-posting Bot for 
+# VK to Telegram auto-posting Bot 
+
+## Info
+
+* Bot posting only links could be found in master branch
+* Bot posting full posts(text and images) could be found in extended branch
 
 ## Requirements:
 
