@@ -1,7 +1,5 @@
 <?php
 
-use Longman\TelegramBot\Request;
-
 class Log{
     /**
      * @param $str
@@ -11,6 +9,13 @@ class Log{
     {
         $str = "[" . date('H:i:s') . "]: " . $str . "\n";
         file_put_contents(Config::getFileLog(), $str, FILE_APPEND);
+    }
+
+    /**
+     * Clears log file
+     */
+    public static function clearLog(){
+        unlink(Config::getFileLog());
     }
 
     /**

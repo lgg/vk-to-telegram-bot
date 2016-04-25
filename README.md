@@ -23,6 +23,7 @@
     * add ```*/5 * * * * cd /var/www/console/telegrambot && php index.php >> /dev/null 2>&1```
     * you should change cd command to path where your bot is located
     * this will run bot every 5 minutes, if you need every minute check - replace ```*/5``` to ```*```
+* if you want to clear your logs add task for clear.php with ```php clear.php?clear
 
 ## Configuration:
 
