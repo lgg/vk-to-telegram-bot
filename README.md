@@ -28,6 +28,10 @@
 
 ## Configuration:
 
+* Bot manager:
+    * $isExtended - use Extended or Simple version of bot
+    * $needLink - need to append link in extended mode
+    * $needPostPreview - need to send text preview in simple mode
 * VK:
     * $vk_group_id - id of vk group to parse (only numbers)
 * Telegram:

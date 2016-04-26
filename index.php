@@ -32,18 +32,59 @@ $posted = [
 $telegram = new TelegramApi();
 while ($key >= 0) {
     $post = $response["items"][$key];
+
     //If we have matches - ignore them
     if (!in_array($post["id"], $last)) {
 
         $message = "https://vk.com/wall" . Config::getGroupId() . "_" . $post["id"];
 
-        if (isset($post["text"])) {
-            $message = VkApi::getTextPreview($post["text"]) . $message;
+        //Check what type of posting we need
+        if (Config::isExtended()) {
+
+            //If we have post text - send it
+            if (isset($post["text"])) {
+
+                //If we need to append link
+                if (Config::needLink()) {
+                    $message = VkApi::appendLink($post["text"], $message);
+                } else {
+                    $message = VkApi::clearVkLinks($post["text"]);
+                }
+
+                //Send message
+                $telegram->sendMessage($message);
+            }
+
+
+            //If we have attachments - check them
+            if (isset($post["attachments"])) {
+
+                //Scan all attachments for photos
+                foreach ($post["attachments"] as $attach) {
+                    if ($attach["type"] == "photo") {
+                        $telegram->sendPhoto(VkApi::findMaxSizeLink($attach["photo"]));
+                    }
+                }
+            }
+        } else {
+
+            //Check if need to append post preview
+            if (Config::needPostPreview()) {
+
+                //If we have post text - send it
+                if (isset($post["text"])) {
+                    $message = VkApi::getTextPreview($post["text"], $message);
+                }
+            }
+
+            //Send message
+            $telegram->sendMessage($message);
         }
 
-        $telegram->sendMessageAsUrl($message);
-
+        //Increase posted counter
         $posted["counter"]++;
+
+        //Save posted id
         array_push($posted["ids"], $post["id"]);
     }
 
