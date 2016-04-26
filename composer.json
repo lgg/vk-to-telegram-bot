@@ -6,6 +6,7 @@
     "psr-0": {
       "Log": "app/",
       "Config": "app/",
+      "Manager": "app/",
       "TelegramApi": "app/",
       "VkApi": "app/"
     }
