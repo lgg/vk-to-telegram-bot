@@ -5,10 +5,12 @@ use Longman\TelegramBot\Request;
 class TelegramApi
 {
     private $telegram;
+    private $chat;
 
-    public function __construct()
+    public function __construct($key, $botName, $chat)
     {
-        $this->telegram = new Longman\TelegramBot\Telegram(Config::getTelegramKey(), Config::getTelegramName());
+        $this->telegram = new Longman\TelegramBot\Telegram($key, $botName);
+        $this->chat = "@" . $chat;
     }
 
     /**
@@ -19,7 +21,7 @@ class TelegramApi
     {
         $result = Request::sendMessage(
             [
-                'chat_id' => Config::getTelegramChat(),
+                'chat_id' => $this->chat,
                 'text' => $message
             ]
         );
@@ -38,7 +40,7 @@ class TelegramApi
         //Send file
         $result = Request::sendPhoto(
             [
-                'chat_id' => Config::getTelegramChat(),
+                'chat_id' => $this->chat,
             ],
             $filename
         );

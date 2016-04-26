@@ -2,64 +2,35 @@
 
 class Config
 {
-    //Bot manager settings
-    private static $isExtended = true;
-    private static $needLink = true;
-    private static $needPostPreview = true;
-
-    //VK
-    private static $vk_group_id = "";
-
-    //Telegram
-    private static $telegram_key = "";
-    private static $telegram_name = "";
-    private static $telegram_chat = "";
+    private static $configs = [
+        [
+            //VK
+            "vk" => "",
+            //Telegram
+            "t_key" => "",
+            "t_name" => "",
+            "t_chat" => "",
+            //Bot manager settings
+            "isExtended" => true,
+            "needLink" => true,
+            "needPostPreview" => true,
+        ],
+    ];
 
     //Files
     private static $file_log = "log.txt";
     private static $file_last = "last.json";
 
-    //Functions Bot manager settings
-    public static function isExtended(){
-        return self::$isExtended;
+    public static function getConfigs(){
+        return self::$configs;
     }
 
-    public static function needLink(){
-        return self::$needLink;
-    }
-
-    public static function needPostPreview(){
-        return self::$needPostPreview;
-    }
-
-    //Functions VK
-    public static function getGroupId()
-    {
-        return "-" . self::$vk_group_id;
-    }
-
-    public static function getVkParams()
+    public static function getVkParams($vk_id)
     {
         return [
-            "owner_id" => self::getGroupId(),
+            "owner_id" => $vk_id,
             "count" => 5
         ];
-    }
-
-    //Functions Telegram
-    public static function getTelegramKey()
-    {
-        return self::$telegram_key;
-    }
-
-    public static function getTelegramName()
-    {
-        return self::$telegram_name;
-    }
-
-    public static function getTelegramChat()
-    {
-        return "@" . self::$telegram_chat;
     }
 
     //Functions files
