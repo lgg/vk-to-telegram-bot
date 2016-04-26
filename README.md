@@ -28,16 +28,17 @@
 
 ## Configuration:
 
-* Bot manager:
-    * $isExtended - use Extended or Simple version of bot
-    * $needLink - need to append link in extended mode
-    * $needPostPreview - need to send text preview in simple mode
-* VK:
-    * $vk_group_id - id of vk group to parse (only numbers)
-* Telegram:
-    * $telegram_key - bot api key
-    * $telegram_name - bot name
-    * $telegram_chat - chat id (e.g. myawesomechannel) (without @)
+* $configs - array of arrays
+    * VK:
+        * vk - id of vk user or group to parse(!IMPORTANT! for users you should set only numbers, for groups -numbers(e.g. "1" is id1, "-1" is club1))
+    * Telegram:
+        * $t_key - bot api key
+        * $t_name - bot name
+        * $t_chat - chat id/url (e.g. myawesomechannel) (without @)
+    * Bot manager:
+        * isExtended - use Extended or Simple version of bot
+        * needLink - need to append link in extended mode
+        * needPostPreview - need to send text preview in simple mode
 * Files:
     * $file_log - file to save logs
     * $file_last - file to save last posts
