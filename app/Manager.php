@@ -42,7 +42,7 @@ class Manager
         }
 
         //Load file content
-        $this->last = json_decode(file_get_contents(Config::getFileLast()), true);
+        $last = json_decode(file_get_contents(Config::getFileLast()), true);
 
         //Check if we have some troubles, while reading from last.json
         if (empty($last)) {
@@ -51,6 +51,9 @@ class Manager
             //Close bot manager
             $this->close();
         }
+
+        //If okay write last posts to object
+        $this->last = $last;
     }
 
     /**
