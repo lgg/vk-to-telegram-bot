@@ -2,6 +2,7 @@
 
 ## Info
 
+* [Vote for next feature to release here](https://github.com/littleguga/vk-to-telegram-bot/issues/1)
 * Bot manager with posting to few channels from few groups/users can be found in master branch
 * Bot posting only links can be found in link branch
 * Bot posting full posts(text and images) can be found in extended branch
