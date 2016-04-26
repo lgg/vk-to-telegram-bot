@@ -8,6 +8,12 @@
 * Bot posting full posts(text and images) can be found in extended branch
 * Also you can find answers and help [here](./faq.md)
 
+### Extended version
+* Send full post text, all photos and other attachments
+
+### Simple version
+* Send text preview or only link to vk post(depends on content(is there text in the post) and on needPostPreview setting)
+
 ## Requirements:
 
 * composer require longman/telegram-bot - [sources](https://github.com/akalongman/php-telegram-bot)
