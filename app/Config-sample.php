@@ -26,9 +26,10 @@ class Config
         return self::$configs;
     }
 
-    public static function getVkParams($vk_id)
+    public static function getVkParams($vk_id, $vk_token)
     {
         return [
+            "access_token" => $vk_token,
             "owner_id" => $vk_id,
             "count" => 5
         ];

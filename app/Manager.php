@@ -64,7 +64,7 @@ class Manager
         //Run every config
         foreach ($this->configs as $config) {
             //Get VK response
-            $response = $this->getVk($config["vk"]);
+            $response = $this->getVk($config["vk"], $config["vk_token"]);
 
             //If we have good response
             if ($response) {
@@ -101,13 +101,14 @@ class Manager
 
     /**
      * @param $vk_id string - id of vk user/group
+     * @param $vk_token string - vk service token
      * @return bool|mixed - return false if failed to load vk, return vk response if ok
      * Loads VK, if have errors - log them
      */
-    private function getVk($vk_id)
+    private function getVk($vk_id, $vk_token)
     {
         //Get vk response
-        $vk_response = VkApi::request(VkApi::getMethodUrl("wall.get", Config::getVkParams($vk_id)));
+        $vk_response = VkApi::request(VkApi::getMethodUrl("wall.get", Config::getVkParams($vk_id, $vk_token)));
         $response = $vk_response["response"];
 
         //Check if we have no posts
