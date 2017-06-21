@@ -139,8 +139,8 @@ class Manager
         while ($key >= 0) {
             $post = $response["items"][$key];
 
-            //If we have matches - ignore them
-            if (!in_array($post["id"], $last)) {
+            //If we have matches or post[id] equals 0 or -1(vk api bad responses) => ignore them
+            if (!in_array($post["id"], $last) || $post["id"] == 0 || $post["id"] == -1) {
 
                 $message = "https://vk.com/wall" . $config["vk"] . "_" . $post["id"];
 
