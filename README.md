@@ -17,9 +17,12 @@
     * `link` branch - Bot posting only links
     * `extended` branch - Bot posting full posts(text and images)
 
-## Requirements:
+## You will need
 
-* composer require longman/telegram-bot - [sources](https://github.com/akalongman/php-telegram-bot)
+* Server with installed SSL certificate
+* VK service token
+* Telegram bot and it's api key
+* Telegram Channel(of course you will need to add bot to administrators of your channel)
 
 ## Installation [production]
 
@@ -61,6 +64,7 @@ There are few types of bot behavior:
 * $configs - array of arrays
     * VK:
         * vk - id of vk user or group to parse(!IMPORTANT! for users you should set only numbers, for groups -numbers(e.g. "1" is id1, "-1" is club1))
+        * vk_token - VK service token([read more here](https://vk.com/dev/service_token))
     * Telegram:
         * $t_key - bot api key
         * $t_name - bot name
