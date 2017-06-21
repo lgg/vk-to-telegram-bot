@@ -6,7 +6,7 @@
 
 ### Links
 
-* [Vote for next feature to release here](https://github.com/littleguga/vk-to-telegram-bot/issues/1)
+* [Vote for next feature to release here](https://github.com/lgg/vk-to-telegram-bot/issues/1)
 * Also you can find answers and help [here](./faq.md)
 
 ### Branches
