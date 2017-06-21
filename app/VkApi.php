@@ -2,7 +2,7 @@
 
 class VkApi
 {
-    private static $api_ver = "5.50";
+    private static $api_ver = "5.65";
 
     /**
      * @param $method
