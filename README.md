@@ -2,11 +2,20 @@
 
 ## Info
 
+* Bot manager for auto-reposting posts from VK user/group/public to Telegram channel
+
+### Links
+
 * [Vote for next feature to release here](https://github.com/littleguga/vk-to-telegram-bot/issues/1)
-* Bot manager with posting to few channels from few groups/users can be found in master branch
-* Bot posting only links can be found in link branch
-* Bot posting full posts(text and images) can be found in extended branch
 * Also you can find answers and help [here](./faq.md)
+
+### Branches
+
+* Active
+    * `master` - main branch with last stable code
+* Abandoned
+    * `link` branch - Bot posting only links
+    * `extended` branch - Bot posting full posts(text and images)
 
 ## Requirements:
 
