@@ -6,6 +6,7 @@ class Config
         [
             //VK
             "vk" => "",
+            "vk_token" => "",
             //Telegram
             "t_key" => "",
             "t_name" => "",
