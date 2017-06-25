@@ -2,7 +2,7 @@
 
 ## Info
 
-* Bot manager for auto-reposting posts from VK user/group/public to Telegram channel
+* Bot-manager for auto-reposting posts from VK user/group/public to Telegram channel
 
 ### Links
 
