@@ -4,12 +4,14 @@
 
 * [Variations of posting](#variations-of-posting)
 * [Parameters types](#parameters-types)
+* [Basic info](#basic-info)
 * [VK parameters](#vk)
 * [Telegram parameters](#telegram)
 * [Bot modes](#bot-modes)
 * [Post cutting parameters](#post-cutting)
 * [Parsing internal VK links](#parsing-internal-vk-links)
 * [i18n](#i18n)
+* [Logging](#logging)
 
 ## Variations of posting
 
@@ -22,6 +24,13 @@
 For examples of configuration [check this](./examples/vop/)
 
 ## Parameters types
+
+## Basic info
+
+* $configs - array of settings arrays
+* Files:
+    * $file_log - file to save logs
+    * $file_last - file to save last posts
 
 ## VK
 
@@ -46,6 +55,7 @@ For examples of configuration [check this](./examples/vop/)
 
 *soon*
 
+## Logging
 
 ---
 
@@ -94,6 +104,3 @@ private static $configs = [
         * isExtended - use Extended or Simple version of bot
         * needLink - need to append link in extended mode
         * needPostPreview - need to send text preview in simple mode
-* Files:
-    * $file_log - file to save logs
-    * $file_last - file to save last posts
