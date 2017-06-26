@@ -62,6 +62,8 @@ There are few types of bot behavior:
 
 ### Config.php
 
+Information about configurating bot [could be found here](./config.md)
+
 * $configs - array of arrays
     * VK:
         * vk - id of vk user or group to parse(!IMPORTANT! for users you should set only numbers, for groups -numbers(e.g. "1" is id1, "-1" is club1))
