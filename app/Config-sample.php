@@ -11,10 +11,23 @@ class Config
             "t_key" => "",
             "t_name" => "",
             "t_chat" => "",
-            //Bot manager settings
+            //Bot-manager settings
+            //Bot-manager reposting params(modes)
             "isExtended" => true,
             "needLink" => true,
             "needPostPreview" => true,
+            //Bot-manager internal functions params
+            "dotsCutting" => [
+                "aggressive" => false,
+                "limit" => 3
+            ],
+            "vkLinks" => [
+                "show" => false,
+                "symbols" => [
+                    "open" => "[",
+                    "close" => "]"
+                ]
+            ]
         ],
     ];
 
