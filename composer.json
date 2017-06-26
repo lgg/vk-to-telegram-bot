@@ -8,7 +8,8 @@
       "Config": "app/",
       "Manager": "app/",
       "TelegramApi": "app/",
-      "VkApi": "app/"
+      "VkApi": "app/",
+      "VkLinks": "app/"
     }
   }
 }

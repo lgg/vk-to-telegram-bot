@@ -62,7 +62,7 @@ class Manager
     public function start()
     {
         //Run every config
-        foreach ($this->configs as $config) {
+        foreach ($this->configs as $configIndex => $config) {
             //Get VK response
             $response = $this->getVk($config["vk"], $config["vk_token"]);
 
@@ -81,7 +81,7 @@ class Manager
                 }
 
                 //Send messages
-                $posted = $this->send($response, $telegram, $last, $config);
+                $posted = $this->send($response, $telegram, $last, $config, $configIndex);
 
                 //Save log
                 if ($posted["counter"] > 0) {
@@ -125,10 +125,11 @@ class Manager
      * @param $telegram - telegram API object
      * @param $last - last posted ids
      * @param $config - config for this entity
+     * @param $configIndex - index of current $config
      * @return array - $posted object(counter + posted ids array)
      * Sends messages to Telegram, if have new posts
      */
-    private function send($response, $telegram, $last, $config)
+    private function send($response, $telegram, $last, $config, $configIndex)
     {
         //Check posts
         $key = count($response["items"]) - 1;
@@ -144,17 +145,23 @@ class Manager
 
                 $message = "https://vk.com/wall" . $config["vk"] . "_" . $post["id"];
 
+                //   TODO optimize this
+                $postText = false;
+                if (isset($post["text"])) {
+                    $postText = VkLinks::parseVkLinks($post["text"], $configIndex);
+                }
+
                 //Check what type of posting we need
                 if ($config["isExtended"]) {
 
                     //If we have post text - send it
-                    if (isset($post["text"])) {
+                    if ($postText) {
 
                         //If we need to append link
                         if ($config["needLink"]) {
-                            $message = VkApi::appendLink($post["text"], $message);
+                            $message = VkApi::appendLink($postText, $message);
                         } else {
-                            $message = VkApi::clearVkLinks($post["text"]);
+                            $message = $postText;
                         }
 
                         //Send message
@@ -178,8 +185,8 @@ class Manager
                     if ($config["needPostPreview"]) {
 
                         //If we have post text - send it
-                        if (isset($post["text"])) {
-                            $message = VkApi::getTextPreview($post["text"], $message);
+                        if ($postText) {
+                            $message = VkApi::getTextPreview($postText, $message);
                         }
                     }
 
