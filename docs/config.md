@@ -19,6 +19,8 @@
 * few VK - one Telegram
 * few VK - few Telegram channels
 
+For examples of configuration [check this](./examples/vop/)
+
 ## Parameters types
 
 ## VK
