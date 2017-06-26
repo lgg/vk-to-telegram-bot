@@ -55,7 +55,7 @@ class VkLinksParser
 
     /**
      * @param string $text source text
-     * @param int $configIndex number of config to use
+     * @param int $configIndex index number of config to use
      * @return string
      * Parse $text for internal vk links [club1|Test] or [id1|Test] and delete or replace them to normal
      */
