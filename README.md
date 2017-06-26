@@ -40,6 +40,15 @@
     * this will run bot every 5 minutes, if you need every minute check - replace `*/5` to `*`
 * if you want to clear your logs add task for clear.php with `php clear.php?clear`
 
+## Update
+
+* stop your cron job (comment it)
+* backup your `Config.php`
+* `git pull`
+* `composer dump-autoload`
+* `cp app/Config-sample.php app/Config.php`
+* edit `Config.php` for your settings
+
 ## Configuration:
 
 ### Info 
