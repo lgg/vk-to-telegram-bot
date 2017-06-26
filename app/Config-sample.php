@@ -17,7 +17,7 @@ class Config
             "needLink" => true,
             "needPostPreview" => true,
             //Bot-manager internal functions params
-            "textCutting" => [
+            "textCutter" => [
                 "aggressive" => false,
                 "limit" => 3
             ],
