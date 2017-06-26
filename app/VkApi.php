@@ -54,24 +54,4 @@ class VkApi
     {
         return trim($text . " Комментировать в ВК:") . " " . $link;
     }
-
-    /**
-     * @param $text
-     * @param $link
-     * @return string
-     * Cuts text to 140 symbols or more till the space and add "Read more:" text
-     */
-    public static function getTextPreview($text, $link)
-    {
-        $i = 139;
-        if (!isset($text[$i])) {
-            return trim($text . " Комментировать в ВК:") . " " . $link;
-        }
-        $max = strlen($text) - 1;
-        while ($text[$i] != " " and $i <= $max) {
-            $i++;
-        }
-        $text = substr($text, 0, $i);
-        return $text . "... Подробнее: " . $link;
-    }
 }

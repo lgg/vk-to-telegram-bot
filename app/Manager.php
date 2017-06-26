@@ -186,7 +186,7 @@ class Manager
 
                         //If we have post text - send it
                         if ($postText) {
-                            $message = VkApi::getTextPreview($postText, $message);
+                            $message = TextCutter::getTextPreview($postText, $message, $configIndex);
                         }
                     }
 
