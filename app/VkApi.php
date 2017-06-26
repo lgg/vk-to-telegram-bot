@@ -94,7 +94,7 @@ class VkApi
             return trim($text . " Комментировать в ВК:") . " " . $link;
         }
         $max = strlen($text) - 1;
-        while ($text[$i] != " " and $i < $max) {
+        while ($text[$i] != " " and $i <= $max) {
             $i++;
         }
         $text = substr($text, 0, $i);
