@@ -9,7 +9,7 @@
       "Manager": "app/",
       "TelegramApi": "app/",
       "VkApi": "app/",
-      "VkLinks": "app/"
+      "VkLinksParser": "app/"
     }
   }
 }

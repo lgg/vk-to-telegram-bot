@@ -148,7 +148,7 @@ class Manager
                 //   TODO optimize this
                 $postText = false;
                 if (isset($post["text"])) {
-                    $postText = VkLinks::parseVkLinks($post["text"], $configIndex);
+                    $postText = VkLinksParser::parseInternalLinks($post["text"], $configIndex);
                 }
 
                 //Check what type of posting we need

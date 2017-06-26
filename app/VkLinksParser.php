@@ -1,6 +1,6 @@
 <?php
 
-class VkLinks
+class VkLinksParser
 {
     /**
      * @param string $type internal VK link type (club, id, app, etc)
@@ -59,7 +59,7 @@ class VkLinks
      * @return string
      * Parse $text for internal vk links [club1|Test] or [id1|Test] and delete or replace them to normal
      */
-    public static function parseVkLinks($text, $config_index)
+    public static function parseInternalLinks($text, $config_index)
     {
         //check config
         $config = Config::getConfigs()[$config_index]["vkLinks"];
