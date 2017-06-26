@@ -152,13 +152,13 @@ class Manager
                 }
 
                 //Check what type of posting we need
-                if ($config["isExtended"]) {
+                if ($config["extended"]["active"]) {
 
                     //If we have post text - send it
                     if ($postText) {
 
                         //If we need to append link
-                        if ($config["needLink"]) {
+                        if ($config["extended"]["needLink"]) {
                             $message = VkApi::appendLink($postText, $message);
                         } else {
                             $message = $postText;

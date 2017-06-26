@@ -13,8 +13,10 @@ class Config
             "t_chat" => "",
             //Bot-manager settings
             //Bot-manager reposting params(modes)
-            "isExtended" => true,
-            "needLink" => true,
+            "extended" => [
+                "active" => true,
+                "needLink" => true,
+            ],
             "needPostPreview" => true,
             //Bot-manager internal functions params
             "textCutter" => [
