@@ -77,13 +77,13 @@
 
 | textCutter.aggressive | textCutter.limit | Result |
 | ------                | ------           | ------ |
-| false                 | ignored          | text will be cutted on first space(` `) or till text end |
+| false                 | *ignored*        | text will be cutted on first space(` `) or till text end |
 | true                  | 3                | text will be cutted on `140+limit` symbol                |
 
 ### Examples and explanations
 
-* [textCutter.aggressive=false](./examples/text-cutter/aggressive-false.md)
-* [textCutter.aggressive=true](./examples/text-cutter/aggressive-true.md)
+* [textCutter.aggressive = false](./examples/text-cutter/aggressive-false.md)
+* [textCutter.aggressive = true](./examples/text-cutter/aggressive-true.md)
 
 ## Parsing internal VK links
 
@@ -95,13 +95,13 @@
 
 | vkLinks.show | vkLinks.symbols.open | vkLinks.symbols.close | Result |
 | ------       | ------               | ------                | ------ |
-| false        | ignored              | ignored               | internal VK link will be deleted from text                |
+| false        | *ignored*            | *ignored*             | internal VK link will be deleted from text                |
 | true         | [                    | ]                     | internal VK link will be transformed to `text[full link]` |
 
 ### Examples and explanations
 
-* [vkLinks.show=false](./examples/vk-links/show-false.md)
-* [vkLinks.show=true](./examples/vk-links/show-true.md)
+* [vkLinks.show = false](./examples/vk-links/show-false.md)
+* [vkLinks.show = true](./examples/vk-links/show-true.md)
 
 ## i18n
 
