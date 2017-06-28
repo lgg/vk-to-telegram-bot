@@ -6,6 +6,7 @@
     "psr-0": {
       "Log": "app/",
       "Config": "app/",
+      "I18N": "app/",
       "Manager": "app/",
       "TelegramApi": "app/",
       "TextCutter": "app/",
