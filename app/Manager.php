@@ -159,7 +159,7 @@ class Manager
 
                         //If we need to append link
                         if ($config["extended"]["needLink"]) {
-                            $message = VkApi::appendLink($postText, $message);
+                            $message = TextCutter::appendLink($postText, $message);
                         } else {
                             $message = $postText;
                         }

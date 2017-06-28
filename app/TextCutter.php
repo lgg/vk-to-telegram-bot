@@ -3,6 +3,17 @@
 class TextCutter
 {
     /**
+     * @param $text
+     * @param $link
+     * @return string
+     * Append "Comment in vk:" to text
+     */
+    public static function appendLink($text, $link)
+    {
+        return trim($text . " Комментировать в ВК:") . " " . $link;
+    }
+
+    /**
      * @param string $text
      * @param string $link
      * @param int $configIndex index number of config to use
@@ -17,7 +28,7 @@ class TextCutter
         //check if we have 140th symbol
         $i = 139;
         if (!isset($text[$i])) {
-            return trim($text . " Комментировать в ВК:") . " " . $link;
+            return self::appendLink($text, $link);
         }
 
         //check in which mode we are working
