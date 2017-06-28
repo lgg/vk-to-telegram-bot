@@ -25,12 +25,12 @@ For examples of configuration [check docs](./docs/config.md)
 * Resend text and photos
 * Few variations of behaviour
 * Flexible settings
+* Simple i18n
 
 ### Features to release
 
 *this will be implemented soon*
 
-* i18n
 * resend all attachment types
 * test coverage
 * variations of data storage(database, json, etc)
@@ -42,6 +42,13 @@ For examples of configuration [check docs](./docs/config.md)
 * [Installation](./docs/install.md)
 * [Updating](./docs/updating.md)
 * [Configuration](./docs/config.md)
+
+## Examples of channels with this bot
+
+| Telegram Channel | VK   |
+| ------    | ------      |
+| [Hackathon list](https://t.me/hacklist)          | [Hackathon list](https://vk.com/hacklist)    |
+| [Frontend Raccoon](https://t.me/frontendraccoon) | [Frontend Raccoon](https://vk.com/jsraccoon) |
 
 ## Links and Copyrights:
 
