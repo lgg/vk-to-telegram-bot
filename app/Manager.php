@@ -166,7 +166,7 @@ class Manager
 
                         //If we need to append link
                         if ($config["extended"]["needLink"]) {
-                            $message = TextCutter::appendLink($postText, $message, $this->i18n);
+                            $message = TextCutter::appendLink($postText, $message, $this->i18n, "true");
                         } else {
                             $message = $postText;
                         }

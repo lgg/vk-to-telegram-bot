@@ -6,12 +6,13 @@ class TextCutter
      * @param string $text
      * @param string $link
      * @param I18N $i18n
+     * @param boolean $fromNewLine (optional) need to add \n before "comment: link"
      * @return string
      * Append "Comment in vk:" to text
      */
-    public static function appendLink($text, $link, $i18n)
+    public static function appendLink($text, $link, $i18n, $fromNewLine)
     {
-        return trim($text . " " . $i18n->get("textCutter", "comment")) . " " . $link;
+        return trim($text . $fromNewLine ? "\n" : " " . $i18n->get("textCutter", "comment")) . " " . $link;
     }
 
     /**
