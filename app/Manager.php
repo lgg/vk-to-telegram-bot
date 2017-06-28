@@ -4,6 +4,7 @@ class Manager
 {
     private $configs;
     private $last;
+    private $i18n;
 
     /**
      * Loads configs and check files
@@ -61,8 +62,14 @@ class Manager
      */
     public function start()
     {
+        //create i18n instance
+        $this->i18n = new I18N();
+
         //Run every config
         foreach ($this->configs as $configIndex => $config) {
+            //Load language for this config
+            $this->i18n->loadLang($config["language"]);
+
             //Get VK response
             $response = $this->getVk($config["vk"], $config["vk_token"]);
 
@@ -159,7 +166,7 @@ class Manager
 
                         //If we need to append link
                         if ($config["extended"]["needLink"]) {
-                            $message = TextCutter::appendLink($postText, $message);
+                            $message = TextCutter::appendLink($postText, $message, $this->i18n);
                         } else {
                             $message = $postText;
                         }
@@ -186,7 +193,7 @@ class Manager
 
                         //If we have post text - send it
                         if ($postText) {
-                            $message = TextCutter::getTextPreview($postText, $message, $configIndex);
+                            $message = TextCutter::getTextPreview($postText, $message, $configIndex, $this->i18n);
                         }
                     }
 

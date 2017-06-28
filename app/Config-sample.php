@@ -19,6 +19,7 @@ class Config
             ],
             "needPostPreview" => true,
             //Bot-manager internal functions params
+            "language" => "ru",
             "textCutter" => [
                 "aggressive" => false,
                 "limit" => 3
@@ -37,7 +38,8 @@ class Config
     private static $file_log = "log.txt";
     private static $file_last = "last.json";
 
-    public static function getConfigs(){
+    public static function getConfigs()
+    {
         return self::$configs;
     }
 

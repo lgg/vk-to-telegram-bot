@@ -3,24 +3,26 @@
 class TextCutter
 {
     /**
-     * @param $text
-     * @param $link
+     * @param string $text
+     * @param string $link
+     * @param I18N $i18n
      * @return string
      * Append "Comment in vk:" to text
      */
-    public static function appendLink($text, $link)
+    public static function appendLink($text, $link, $i18n)
     {
-        return trim($text . " Комментировать в ВК:") . " " . $link;
+        return trim($text . " " . $i18n->get("textCutter", "comment")) . " " . $link;
     }
 
     /**
      * @param string $text
      * @param string $link
      * @param int $configIndex index number of config to use
+     * @param I18N $i18n
      * @return string
      * Cuts text to 140 symbols or more till the space and add "Read more:" text
      */
-    public static function getTextPreview($text, $link, $configIndex)
+    public static function getTextPreview($text, $link, $configIndex, $i18n)
     {
         //check config
         $config = Config::getConfigs()[$configIndex]["textCutter"];
@@ -28,7 +30,7 @@ class TextCutter
         //check if we have 140th symbol
         $i = 139;
         if (!isset($text[$i])) {
-            return self::appendLink($text, $link);
+            return self::appendLink($text, $link, $i18n);
         }
 
         //check in which mode we are working
@@ -51,6 +53,6 @@ class TextCutter
             $text = substr($text, 0, $i);
         }
 
-        return trim($text) . ($needDots ? "..." : "") . " Подробнее: " . $link;
+        return trim($text) . ($needDots ? $i18n->get("textCutter", "dots") : "") . " " . $i18n->get("textCutter", "read-more") . " " . $link;
     }
 }
