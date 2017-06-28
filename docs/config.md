@@ -105,7 +105,16 @@
 
 ## i18n
 
-*soon*
+| Parameter    | Type   | Description          |
+| ------       | ------ | ------               |
+| language     | string | defines bot language |
+
+* available languages:
+    * [en](../i18n/en.json)
+    * [ru](../i18n/ru.json)
+* languages and phrases are stored in `/i18n/`
+* phrases are user for `TextCutter` class: `getTextPreview()`, `read-more`, `comment in VK`
+* you can create your own language by copying `template.json` and changing it
 
 ## Logging
 
