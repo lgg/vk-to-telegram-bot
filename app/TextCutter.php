@@ -12,7 +12,7 @@ class TextCutter
      */
     public static function appendLink($text, $link, $i18n, $fromNewLine)
     {
-        return trim($text . $fromNewLine ? "\n" : " " . $i18n->get("textCutter", "comment")) . " " . $link;
+        return trim($text . ($fromNewLine ? "\n" : " ") . $i18n->get("textCutter", "comment")) . " " . $link;
     }
 
     /**
