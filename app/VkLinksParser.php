@@ -50,7 +50,7 @@ class VkLinksParser
      */
     private static function constructReplaceStringForReplacing($vk_links, $key, $type, $config)
     {
-        return $vk_links[2][$key] . $config["symbols"]["open"] . self::constructFullLink($type, $vk_links[1][$key]) . $config["symbols"]["close"];
+        return $vk_links[2][$key] . " " . $config["symbols"]["open"] . self::constructFullLink($type, $vk_links[1][$key]) . $config["symbols"]["close"];
     }
 
     /**
