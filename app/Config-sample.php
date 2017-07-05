@@ -16,6 +16,7 @@ class Config
             "extended" => [
                 "active" => true,
                 "needLink" => true,
+                "resendAttachments" => true,
             ],
             "needPostPreview" => true,
             //Bot-manager internal functions params
