@@ -177,7 +177,7 @@ class Manager
 
 
                     //If we have attachments - check them
-                    if (isset($post["attachments"])) {
+                    if (isset($post["attachments"]) && $config["extended"]["resendAttachments"]) {
 
                         //Scan all attachments for photos
                         foreach ($post["attachments"] as $attach) {
