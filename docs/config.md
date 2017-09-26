@@ -6,6 +6,7 @@
 * [Basic info](#basic-info)
 * [VK parameters](#vk)
 * [Telegram parameters](#telegram)
+* [Telegram posting parameters](#telegram-posting)
 * [Bot modes](#bot-modes)
 * [Post cutting parameters](#post-cutting)
 * [Parsing internal VK links](#parsing-internal-vk-links)
@@ -41,6 +42,15 @@
 | t_key     | string | bot api key |
 | t_name    | string | bot name    |
 | t_chat    | string | chat id/url **(without @)**, (e.g. `myawesomechannel`) |
+
+## Telegram posting
+
+| Parameter                            | Type    | Description                                                                 |
+| ------                               | ------  | ------                                                                      |
+| messageSend.disable_web_page_preview | boolean | Disables link previews for links in this message                            |
+| messageSend.disable_notification     | boolean | Sends the message silently. Users will receive a notification with no sound |
+
+[see more](https://core.telegram.org/bots/api#sendmessage)
 
 ## Bot modes
 
