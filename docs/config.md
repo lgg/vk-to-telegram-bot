@@ -45,6 +45,8 @@
 
 ## Telegram posting
 
+This config section is **optional**. If not set all these variables are equal to `false`.
+
 | Parameter                            | Type    | Description                                                                 |
 | ------                               | ------  | ------                                                                      |
 | messageSend.disable_web_page_preview | boolean | Disables link previews for links in this message                            |
