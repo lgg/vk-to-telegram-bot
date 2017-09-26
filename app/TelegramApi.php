@@ -15,16 +15,29 @@ class TelegramApi
 
     /**
      * @param string $message
+     * @param array $data
      * Send message with URL to the post
      */
-    public function sendMessage($message)
+    public function sendMessage($message, $data)
     {
-        $result = Request::sendMessage(
-            [
-                'chat_id' => $this->chat,
-                'text' => $message
-            ]
-        );
+        //array of allowed parameters, see more: https://core.telegram.org/bots/api#sendmessage
+        $allowed = [
+            'disable_web_page_preview', // Bool, Disables link previews for links in this message
+            'disable_notification', // Bool, Sends the message silently. Users will receive a notification with no sound.
+        ];
+
+        $params = [
+            'chat_id' => $this->chat,
+            'text' => $message
+        ];
+
+        foreach ($allowed as $a) {
+            if (isset($data[$a])) {
+                $params[$a] = $data[$a];
+            }
+        }
+
+        $result = Request::sendMessage($params);
     }
 
     /**

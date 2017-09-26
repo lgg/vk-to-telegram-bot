@@ -158,6 +158,12 @@ class Manager
                     $postText = VkLinksParser::parseInternalLinks($post["text"], $configIndex);
                 }
 
+                //Set sendMessage parameters
+                $messageParams = [
+                    'disable_web_page_preview' => $config["messageSend"]["disable_web_page_preview"],
+                    'disable_notification' => $config["messageSend"]["disable_notification"]
+                ];
+
                 //Check what type of posting we need
                 if ($config["extended"]["active"]) {
 
@@ -172,7 +178,7 @@ class Manager
                         }
 
                         //Send message
-                        $telegram->sendMessage($message);
+                        $telegram->sendMessage($message, $messageParams);
                     }
 
 
@@ -198,7 +204,7 @@ class Manager
                     }
 
                     //Send message
-                    $telegram->sendMessage($message);
+                    $telegram->sendMessage($message, $messageParams);
                 }
 
                 //Increase posted counter

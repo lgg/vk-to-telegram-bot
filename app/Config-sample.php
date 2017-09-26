@@ -11,6 +11,10 @@ class Config
             "t_key" => "",
             "t_name" => "",
             "t_chat" => "",
+            "messageSend" => [
+                "disable_web_page_preview" => false,
+                "disable_notification" => false
+            ],
             //Bot-manager settings
             //Bot-manager reposting params(modes)
             "extended" => [
