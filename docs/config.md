@@ -54,6 +54,11 @@ This config section is **optional**. If not set all these variables are equal to
 
 [see more](https://core.telegram.org/bots/api#sendmessage)
 
+### Examples and explanations
+
+* [messageSend.disable_web_page_preview](./examples/messageSend/disable_web_page_preview.md)
+* [messageSend.disable_notification](./examples/messageSend/disable_notification.md)
+
 ## Bot modes
 
 *//add block scheme//*
