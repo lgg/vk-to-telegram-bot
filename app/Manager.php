@@ -159,10 +159,8 @@ class Manager
                 }
 
                 //Set sendMessage parameters
-                $messageParams = [
-                    'disable_web_page_preview' => $config["messageSend"]["disable_web_page_preview"],
-                    'disable_notification' => $config["messageSend"]["disable_notification"]
-                ];
+                $messageParams['disable_web_page_preview'] = isset($config["messageSend"]["disable_web_page_preview"]) ? $config["messageSend"]["disable_web_page_preview"] : false;
+                $messageParams['disable_notification'] = isset($config["messageSend"]["disable_notification"]) ? $config["messageSend"]["disable_notification"] : false;
 
                 //Check what type of posting we need
                 if ($config["extended"]["active"]) {
