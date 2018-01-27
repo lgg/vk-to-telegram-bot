@@ -60,11 +60,11 @@ class Config
     //Functions files
     public static function getFileLog()
     {
-        return self::$file_log;
+        return dirname($_SERVER['SCRIPT_NAME']).DIRECTORY_SEPARATOR.self::$file_log;
     }
 
     public static function getFileLast()
     {
-        return self::$file_last;
+        return dirname($_SERVER['SCRIPT_NAME']).DIRECTORY_SEPARATOR.self::$file_last;
     }
 }

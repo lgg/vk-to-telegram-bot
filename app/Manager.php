@@ -187,6 +187,8 @@ class Manager
                         foreach ($post["attachments"] as $attach) {
                             if ($attach["type"] == "photo") {
                                 $telegram->sendPhoto(VkApi::findMaxSizeLink($attach["photo"]));
+                            } elseif ($attach["type"] == "link" && isset($attach["link"]["photo"])) {
+                                $telegram->sendPhoto(VkApi::findMaxSizeLink($attach["link"]["photo"]));
                             }
                         }
                     }
