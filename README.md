@@ -53,5 +53,5 @@ For examples of configuration [check docs](./docs/config.md)
 ## Links and Copyrights:
 
 * LICENSE: MIT
-* Author: [lgg](https://github.com/lgg)
+* Author: [lgg](https://github.com/lgg) and [awesome contributors](https://github.com/lgg/vk-to-telegram-bot/graphs/contributors)
 * Thanks to [akalongman](https://github.com/akalongman) for [php-telegram-bot](https://github.com/akalongman/php-telegram-bot)
