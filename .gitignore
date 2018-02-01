@@ -1,4 +1,7 @@
 Config.php
+app/Config.php
+last.json
+log.txt
 /vendor/
 /composer.bat
 

@@ -47,7 +47,7 @@ class TelegramApi
     public function sendPhoto($link)
     {
         //Load file
-        $filename = __DIR__ . DIRECTORY_SEPARATOR . time() . ".jpg";
+        $filename = __DIR__ . DIRECTORY_SEPARATOR . uniqid() . ".jpg";
         file_put_contents($filename, fopen($link, 'r'));
 
         //Send file
