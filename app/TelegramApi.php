@@ -54,8 +54,8 @@ class TelegramApi
         $result = Request::sendPhoto(
             [
                 'chat_id' => $this->chat,
-            ],
-            $filename
+		        'photo' => Request::encodeFile($filename),
+            ]
         );
 
         //Delete file
