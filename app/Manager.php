@@ -1,5 +1,8 @@
 <?php
 
+use Longman\TelegramBot\Entities\InlineKeyboard;
+use Longman\TelegramBot\Entities\InlineKeyboardButton;
+
 class Manager
 {
     private $configs;
@@ -165,21 +168,6 @@ class Manager
                 //Check what type of posting we need
                 if ($config["extended"]["active"]) {
 
-                    //If we have post text - send it
-                    if ($postText) {
-
-                        //If we need to append link
-                        if ($config["extended"]["needLink"]) {
-                            $message = TextCutter::appendLink($postText, $message, $this->i18n, "true");
-                        } else {
-                            $message = $postText;
-                        }
-
-                        //Send message
-                        $telegram->sendMessage($message, $messageParams);
-                    }
-
-
                     //If we have attachments - check them
                     if (isset($post["attachments"]) && $config["extended"]["resendAttachments"]) {
 
@@ -192,6 +180,21 @@ class Manager
                             }
                         }
                     }
+
+                    //If we have post text - send it
+                    if ($postText) {
+
+                        //If we need to append link
+                        if ($config["extended"]["needLink"]) {
+                            $inline_keyboard[0] = new InlineKeyboardButton(['text' => $this->i18n->get("textCutter", "comment"), 'url' => $message]);
+                            $messageParams['reply_markup'] = new InlineKeyboard($inline_keyboard);		
+                        }
+                        $message = $postText;
+
+                        //Send message
+                        $telegram->sendMessage($message, $messageParams);
+                    }
+
                 } else {
 
                     //Check if need to append post preview
