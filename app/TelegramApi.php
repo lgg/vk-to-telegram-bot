@@ -61,4 +61,27 @@ class TelegramApi
         //Delete file
         unlink($filename);
     }
+
+    /**
+     * @param $link
+     * Send GIF to channel
+     */
+    public function sendGIF($link)
+    {
+        //Load file
+        $filename = __DIR__ . DIRECTORY_SEPARATOR . uniqid() . ".mp4";
+        file_put_contents($filename, fopen($link, 'r'));
+
+        //Send file
+        $result = Request::sendVideo(
+            [
+                'chat_id' => $this->chat,
+            ],
+            $filename
+        );
+
+        //Delete file
+        unlink($filename);
+    }
 }
+
