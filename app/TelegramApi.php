@@ -10,6 +10,7 @@ class TelegramApi
     public function __construct($key, $botName, $chat)
     {
         $this->telegram = new Longman\TelegramBot\Telegram($key, $botName);
+        Request::setClient(new \GuzzleHttp\Client(['base_uri' => 'https://api.telegram.org', 'proxy'=>"socks5h://proxyuser:proxypassword@proxyaddress.ru:1080", 'timeout'=>10, 'verify' => false,]));
         $this->chat = "@" . $chat;
     }
 
