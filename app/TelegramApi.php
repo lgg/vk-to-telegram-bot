@@ -61,4 +61,3 @@ class TelegramApi
         //Delete file
         unlink($filename);
     }
-}

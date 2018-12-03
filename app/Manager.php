@@ -189,6 +189,8 @@ class Manager
                                 $telegram->sendPhoto(VkApi::findMaxSizeLink($attach["photo"]));
                             } elseif ($attach["type"] == "link" && isset($attach["link"]["photo"])) {
                                 $telegram->sendPhoto(VkApi::findMaxSizeLink($attach["link"]["photo"]));
+                            } elseif ($attach["type"] == "doc" && isset($attach["doc"]["preview"]["video"])) {
+                                $telegram->sendGIF($attach["doc"]["preview"]["video"]['src']);
                             }
                         }
                     }
