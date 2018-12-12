@@ -9,8 +9,14 @@ class TelegramApi
 
     public function __construct($key, $botName, $chat)
     {
-        $this->telegram = new Longman\TelegramBot\Telegram($key, $botName);
-        $this->chat = "@" . $chat;
+        try {
+            // Create Telegram API object
+            $this->telegram = new Longman\TelegramBot\Telegram($key, $botName);
+            $this->chat = "@" . $chat;
+        } catch (Longman\TelegramBot\Exception\TelegramException $e) {
+            // log telegram errors
+            echo $e->getMessage();
+        }
     }
 
     /**
