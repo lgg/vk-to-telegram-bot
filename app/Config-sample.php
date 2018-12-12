@@ -20,6 +20,10 @@ class Config
             "extended" => [
                 "active" => true,
                 "needLinkToVKPost" => true,
+                "needFromText" => [
+                    "withLink" => true,
+                    "prepend" => true
+                ],
                 "resendAttachments" => true,
             ],
             "needPostPreview" => true,

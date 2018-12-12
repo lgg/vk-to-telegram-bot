@@ -28,6 +28,26 @@ class TextManager
 
     /**
      * @param string $text
+     * @param array $groupSource
+     * @param I18N $i18n
+     * @param bool $prepend
+     * @return string
+     * Prepend/Append "From [groupSource]:" to text
+     */
+    public static function addFromText($text, $groupSource, $i18n, $prepend)
+    {
+        if (isset($groupSource["withLink"])) {
+            $fromText = self::createMarkdownLink($groupSource["name"], $groupSource["url"]);
+        } else {
+            $fromText = $groupSource["name"];
+        }
+        $fromText = $i18n->get("textManager", "from") . $fromText;
+        $text = $prepend ? $fromText . "\n" . $text : $text . "\n" . $fromText;
+        return trim($text);
+    }
+
+    /**
+     * @param string $text
      * @param string $link
      * @param int $configIndex index number of config to use
      * @param I18N $i18n

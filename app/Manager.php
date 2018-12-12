@@ -159,6 +159,11 @@ class Manager
      */
     private function send($response, $telegram, $last, $config, $configIndex)
     {
+        //Preload info about VK source
+        if (isset($config["extended"]["needFromText"])) {
+            $infoAboutVKSource = self::getInfoAboutVkObjectById($config["vk"], $config["vk_token"]);
+        }
+
         //Check posts
         $key = count($response["items"]) - 1;
         $posted = [
@@ -189,9 +194,14 @@ class Manager
                     //If we have text in VK post - send it to Telegram
                     if ($postText) {
 
-                        //If we need to append link
+                        //If we need to append link to original VK post
                         if ($config["extended"]["needLinkToVKPost"]) {
                             $message = TextManager::appendLinkToVKPost($postText, $message, $this->i18n, "true");
+                            //If we need to add link to original VK group
+                        } else if (isset($config["extended"]["needFromText"])) {
+                            //If we need to add text about original VK Group
+                            $infoAboutVKSource["withLink"] = (isset($config["extended"]["needFromText"]["withLink"]) && $config["extended"]["needFromText"]["withLink"]);
+                            $message = TextManager::addFromText($postText, $infoAboutVKSource, $this->i18n, (isset($config["extended"]["needFromText"]["prepend"]) && $config["extended"]["needFromText"]["prepend"]));
                         } else {
                             $message = $postText;
                         }
