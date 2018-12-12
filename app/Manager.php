@@ -203,6 +203,9 @@ class Manager
                             //If we need to add link to original VK group
                         } else if (isset($config["extended"]["needFromText"])) {
                             //If we need to add text about original VK Group
+                            if(isset($config["extended"]["needFromText"]["customName"])){
+                                $infoAboutVKSource["name"] = $config["extended"]["needFromText"]["customName"];
+                            }
                             $infoAboutVKSource["withLink"] = (isset($config["extended"]["needFromText"]["withLink"]) && $config["extended"]["needFromText"]["withLink"]);
                             $message = TextManager::addFromText($postText, $infoAboutVKSource, $this->i18n, (isset($config["extended"]["needFromText"]["prepend"]) && $config["extended"]["needFromText"]["prepend"]));
                         } else {

@@ -63,15 +63,16 @@ This config section is **optional**. If not set all these variables are equal to
 
 *//add block scheme//*
    
-| Parameter                      | Type    | Description |
-| ------                         | ------  | ------      |
-| extended.active                | boolean | use Extended(`true`) or Simple(`false`) version of bot              |
-| extended.needLinkToVKPost      | boolean | need to append link in extended mode                                |
-| extended.needFromText          | boolean | need to add text "From original VK source(user/group)"              |
-| extended.needFromText.withLink | boolean | paste fromText as text or as link to original VK source(user/group) |
-| extended.needFromText.prepend  | boolean | prepend or append fromText                                          |
-| extended.resendAttachments     | boolean | need to resend attachments                                          |
-| needPostPreview                | boolean | need to send text preview in simple mode                            |
+| Parameter                         | Type    | Description |
+| ------                            | ------  | ------      |
+| extended.active                   | boolean | use Extended(`true`) or Simple(`false`) version of bot              |
+| extended.needLinkToVKPost         | boolean | need to append link in extended mode                                |
+| extended.needFromText             | boolean | need to add text "From original VK source(user/group)"              |
+| extended.needFromText.withLink    | boolean | paste fromText as text or as link to original VK source(user/group) |
+| extended.needFromText.prepend     | boolean | prepend or append fromText                                          |
+| extended.needFromText.customName  | String  | custom group name for fromText                                          |
+| extended.resendAttachments        | boolean | need to resend attachments                                          |
+| needPostPreview                   | boolean | need to send text preview in simple mode                            |
 
 | extended.active | extended.needLinkToVKPost | extended.resendAttachments | needPostPreview | Result  |
 | ------          | ------                    | ------                     | ------          | ------  |

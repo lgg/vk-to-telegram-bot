@@ -22,7 +22,8 @@ class Config
                 "needLinkToVKPost" => true,
                 "needFromText" => [
                     "withLink" => true,
-                    "prepend" => true
+                    "prepend" => true,
+                    "customName" => "Nice Group"
                 ],
                 "resendAttachments" => true,
             ],
