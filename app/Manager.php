@@ -165,7 +165,7 @@ class Manager
                 //Check what type of posting we need
                 if ($config["extended"]["active"]) {
 
-                    //If we have post text - send it
+                    //If we have text in VK post - send it to Telegram
                     if ($postText) {
 
                         //If we need to append link
