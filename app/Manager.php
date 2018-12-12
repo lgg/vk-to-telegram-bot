@@ -136,7 +136,7 @@ class Manager
     private function getInfoAboutVkObjectById($vk_id, $vk_token)
     {
         $isGroup = ($vk_id[0] === "-");
-        $url = "https://vk.com/" . ($isGroup ? "group" : "id") . $vk_id;
+        $url = "https://vk.com/" . ($isGroup ? "public" . substr($vk_id, 1) : "id" . $vk_id);
 
         //Get vk response
         $vk_params = Config::getVkParams($vk_id, $vk_token);
