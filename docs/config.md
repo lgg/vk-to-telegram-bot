@@ -66,24 +66,24 @@ This config section is **optional**. If not set all these variables are equal to
 | Parameter                  | Type    | Description |
 | ------                     | ------  | ------      |
 | extended.active            | boolean | use Extended(`true`) or Simple(`false`) version of bot |
-| extended.needLink          | boolean | need to append link in extended mode                   |
+| extended.needCommentsLink  | boolean | need to append link in extended mode                   |
 | extended.resendAttachments | boolean | need to resend attachments                             |
 | needPostPreview            | boolean | need to send text preview in simple mode               |
 
-| extended.active | extended.needLink | extended.resendAttachments | needPostPreview | Result  |
-| ------          | ------            | ------                     | ------          | ------  |
-| true            | false             | true                       | *ignored*       | full post text, all photos and other attachments will be sent to Telegram channel **without** original VK link             |
-| true            | false             | false                      | *ignored*       | only full post text, will be sent to Telegram channel                                                                      |
-| true            | true              | true                       | *ignored*       | full post text, all photos and other attachments will be sent to Telegram channel **with** original VK link                |
-| true            | true              | false                      | *ignored*       | full post text **with** original VK link and **without** all photos and other attachments will be sent to Telegram channel |
-| false           | *ignored*         | *ignored*                  | true            | if text exists - text preview will be sent, plus link to original VK post |
-| false           | *ignored*         | *ignored*                  | false           | only link to original VK post will be sent                                |
+| extended.active | extended.needCommentsLink | extended.resendAttachments | needPostPreview | Result  |
+| ------          | ------                    | ------                     | ------          | ------  |
+| true            | false                     | true                       | *ignored*       | full post text, all photos and other attachments will be sent to Telegram channel **without** original VK link             |
+| true            | false                     | false                      | *ignored*       | only full post text, will be sent to Telegram channel                                                                      |
+| true            | true                      | true                       | *ignored*       | full post text, all photos and other attachments will be sent to Telegram channel **with** original VK link                |
+| true            | true                      | false                      | *ignored*       | full post text **with** original VK link and **without** all photos and other attachments will be sent to Telegram channel |
+| false           | *ignored*                 | *ignored*                  | true            | if text exists - text preview will be sent, plus link to original VK post |
+| false           | *ignored*                 | *ignored*                  | false           | only link to original VK post will be sent                                |
 
 ### Examples and explanations
 
 * Extended
-    * [needLink = false](./examples/modes/extended-needlink-false.md)
-    * [needLink = true](./examples/modes/extended-needlink-true.md)
+    * [needCommentsLink = false](./examples/modes/extended-needcommentslink-false.md)
+    * [needCommentsLink = true](./examples/modes/extended-needcommentslink-true.md)
 * Simple
     * [needPostPreview = false](./examples/modes/simple-preview-false.md)
     * [needPostPreview = true](./examples/modes/simple-preview-true.md)
