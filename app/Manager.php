@@ -128,6 +128,27 @@ class Manager
     }
 
     /**
+     * @param $vk_id string - id of vk user/group
+     * @param $vk_token string - vk service token
+     * @return array - return $infoAboutVKSource with ["name"] and ["url"]
+     * Parse info about original VK source object(name, url)
+     */
+    private function getInfoAboutVkObjectById($vk_id, $vk_token)
+    {
+        $isGroup = ($vk_id[0] === "-");
+        $url = "https://vk.com/" . ($isGroup ? "group-" : "id") . $vk_id;
+
+        //Get vk response
+        $vk_response = VkApi::request(VkApi::getMethodUrl($isGroup ? "groups.getById" : "users.get", Config::getVkParams($vk_id, $vk_token)));
+        $response = $vk_response["response"][0];
+
+        return [
+            "name" => ($isGroup ? $response["name"] : $response["first_name"] . " " . $response["last_name"]),
+            "url" => $url
+        ];
+    }
+
+    /**
      * @param $response - response from VK
      * @param $telegram - telegram API object
      * @param $last - last posted ids
