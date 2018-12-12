@@ -66,11 +66,11 @@ This config section is **optional**. If not set all these variables are equal to
 | Parameter                  | Type    | Description |
 | ------                     | ------  | ------      |
 | extended.active            | boolean | use Extended(`true`) or Simple(`false`) version of bot |
-| extended.needCommentsLink  | boolean | need to append link in extended mode                   |
+| extended.needLinkToVKPost  | boolean | need to append link in extended mode                   |
 | extended.resendAttachments | boolean | need to resend attachments                             |
 | needPostPreview            | boolean | need to send text preview in simple mode               |
 
-| extended.active | extended.needCommentsLink | extended.resendAttachments | needPostPreview | Result  |
+| extended.active | extended.needLinkToVKPost | extended.resendAttachments | needPostPreview | Result  |
 | ------          | ------                    | ------                     | ------          | ------  |
 | true            | false                     | true                       | *ignored*       | full post text, all photos and other attachments will be sent to Telegram channel **without** original VK link             |
 | true            | false                     | false                      | *ignored*       | only full post text, will be sent to Telegram channel                                                                      |
@@ -82,8 +82,8 @@ This config section is **optional**. If not set all these variables are equal to
 ### Examples and explanations
 
 * Extended
-    * [needCommentsLink = false](./examples/modes/extended-needcommentslink-false.md)
-    * [needCommentsLink = true](./examples/modes/extended-needcommentslink-true.md)
+    * [needLinkToVKPost = false](./examples/modes/extended-needlinktovkpost-false.md)
+    * [needLinkToVKPost = true](./examples/modes/extended-needlinktovkpost-true.md)
 * Simple
     * [needPostPreview = false](./examples/modes/simple-preview-false.md)
     * [needPostPreview = true](./examples/modes/simple-preview-true.md)

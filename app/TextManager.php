@@ -21,7 +21,7 @@ class TextManager
      * @return string
      * Append "Comment in vk:" to text
      */
-    public static function appendLink($text, $link, $i18n, $fromNewLine)
+    public static function appendLinkToVKPost($text, $link, $i18n, $fromNewLine)
     {
         return trim($text . ($fromNewLine ? "\n" : " ") . $i18n->get("textManager", "comment")) . " " . $link;
     }
@@ -42,7 +42,7 @@ class TextManager
         //check if we have 140th symbol
         $i = 139;
         if (!isset($text[$i])) {
-            return self::appendLink($text, $link, $i18n);
+            return self::appendLinkToVKPost($text, $link, $i18n);
         }
 
         //check in which mode we are working

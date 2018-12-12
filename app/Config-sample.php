@@ -19,7 +19,7 @@ class Config
             //Bot-manager reposting params(modes)
             "extended" => [
                 "active" => true,
-                "needCommentsLink" => true,
+                "needLinkToVKPost" => true,
                 "resendAttachments" => true,
             ],
             "needPostPreview" => true,

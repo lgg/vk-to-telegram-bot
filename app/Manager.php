@@ -169,8 +169,8 @@ class Manager
                     if ($postText) {
 
                         //If we need to append link
-                        if ($config["extended"]["needLink"]) {
-                            $message = TextManager::appendLink($postText, $message, $this->i18n, "true");
+                        if ($config["extended"]["needLinkToVKPost"]) {
+                            $message = TextManager::appendLinkToVKPost($postText, $message, $this->i18n, "true");
                         } else {
                             $message = $postText;
                         }
