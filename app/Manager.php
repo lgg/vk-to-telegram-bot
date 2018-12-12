@@ -128,24 +128,33 @@ class Manager
     }
 
     /**
-     * @param $vk_id string - id of vk user/group
-     * @param $vk_token string - vk service token
+     * @param $config array - config for current entity
      * @return array - return $infoAboutVKSource with ["name"] and ["url"]
      * Parse info about original VK source object(name, url)
      */
-    private function getInfoAboutVkObjectById($vk_id, $vk_token)
+    private function getInfoAboutVkObjectById($config)
     {
+        $vk_id = $config["vk"];
+        $vk_token = $config["vk_token"];
+
+        //Check if it is a group or a person
         $isGroup = ($vk_id[0] === "-");
         $url = "https://vk.com/" . ($isGroup ? "public" . substr($vk_id, 1) : "id" . $vk_id);
 
-        //Get vk response
-        $vk_params = Config::getVkParams($vk_id, $vk_token);
-        $isGroup ? $vk_params["group_ids"] = substr($vk_id, 1) : $vk_params["user_ids"] = $vk_id;
-        $vk_response = VkApi::request(VkApi::getMethodUrl($isGroup ? "groups.getById" : "users.get", $vk_params));
-        $response = $vk_response["response"][0];
+        //Check if we need to parse real user/public name from VK
+        if (isset($config["extended"]["needFromText"]["customName"])) {
+            $name = $config["extended"]["needFromText"]["customName"];
+        } else {
+            //Get vk response
+            $vk_params = Config::getVkParams($vk_id, $vk_token);
+            $isGroup ? $vk_params["group_ids"] = substr($vk_id, 1) : $vk_params["user_ids"] = $vk_id;
+            $vk_response = VkApi::request(VkApi::getMethodUrl($isGroup ? "groups.getById" : "users.get", $vk_params));
+            $response = $vk_response["response"][0];
+            $name = $isGroup ? $response["name"] : $response["first_name"] . " " . $response["last_name"];
+        }
 
         return [
-            "name" => ($isGroup ? $response["name"] : $response["first_name"] . " " . $response["last_name"]),
+            "name" => $name,
             "url" => $url
         ];
     }
@@ -163,7 +172,7 @@ class Manager
     {
         //Preload info about VK source
         if (isset($config["extended"]["needFromText"])) {
-            $infoAboutVKSource = self::getInfoAboutVkObjectById($config["vk"], $config["vk_token"]);
+            $infoAboutVKSource = self::getInfoAboutVkObjectById($config);
         }
 
         //Check posts
@@ -203,9 +212,6 @@ class Manager
                             //If we need to add link to original VK group
                         } else if (isset($config["extended"]["needFromText"])) {
                             //If we need to add text about original VK Group
-                            if(isset($config["extended"]["needFromText"]["customName"])){
-                                $infoAboutVKSource["name"] = $config["extended"]["needFromText"]["customName"];
-                            }
                             $infoAboutVKSource["withLink"] = (isset($config["extended"]["needFromText"]["withLink"]) && $config["extended"]["needFromText"]["withLink"]);
                             $message = TextManager::addFromText($postText, $infoAboutVKSource, $this->i18n, (isset($config["extended"]["needFromText"]["prepend"]) && $config["extended"]["needFromText"]["prepend"]));
                         } else {
