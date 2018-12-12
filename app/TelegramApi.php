@@ -30,6 +30,7 @@ class TelegramApi
         $allowed = [
             'disable_web_page_preview', // Bool, Disables link previews for links in this message
             'disable_notification', // Bool, Sends the message silently. Users will receive a notification with no sound.
+            'parse_mode', // String 'HTML' or 'Markdown'
         ];
 
         $params = [
