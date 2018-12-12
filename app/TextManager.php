@@ -3,6 +3,17 @@
 class TextManager
 {
     /**
+     * @param string $linkText
+     * @param string $url
+     * @return string
+     * Creates Markdown link from url and text-title for this link
+     */
+    public static function createMarkdownLink($linkText, $url)
+    {
+        return "[" . $linkText . "](" . $url . ")";
+    }
+
+    /**
      * @param string $text
      * @param string $link
      * @param I18N $i18n
