@@ -139,7 +139,9 @@ class Manager
         $url = "https://vk.com/" . ($isGroup ? "group-" : "id") . $vk_id;
 
         //Get vk response
-        $vk_response = VkApi::request(VkApi::getMethodUrl($isGroup ? "groups.getById" : "users.get", Config::getVkParams($vk_id, $vk_token)));
+        $vk_params = Config::getVkParams($vk_id, $vk_token);
+        $isGroup ? $vk_params["group_ids"] = substr($vk_id, 1) : $vk_params["user_ids"] = $vk_id;
+        $vk_response = VkApi::request(VkApi::getMethodUrl($isGroup ? "groups.getById" : "users.get", $vk_params));
         $response = $vk_response["response"][0];
 
         return [
