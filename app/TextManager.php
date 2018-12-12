@@ -23,7 +23,7 @@ class TextManager
      */
     public static function appendLinkToVKPost($text, $link, $i18n, $fromNewLine)
     {
-        return trim($text . ($fromNewLine ? "\n" : " ") . $i18n->get("textManager", "comment")) . " " . $link;
+        return trim($text . ($fromNewLine ? "\n\n" : " ") . $i18n->get("textManager", "comment")) . " " . $link;
     }
 
     /**
@@ -42,7 +42,7 @@ class TextManager
             $fromText = $groupSource["name"];
         }
         $fromText = $i18n->get("textManager", "from") . " " . $fromText;
-        $text = $prepend ? $fromText . "\n" . $text : $text . "\n" . $fromText;
+        $text = $prepend ? $fromText . "\n\n" . $text : $text . "\n\n" . $fromText;
         return trim($text);
     }
 
