@@ -41,7 +41,7 @@ class TextManager
         } else {
             $fromText = $groupSource["name"];
         }
-        $fromText = $i18n->get("textManager", "from") . $fromText;
+        $fromText = $i18n->get("textManager", "from") . " " . $fromText;
         $text = $prepend ? $fromText . "\n" . $text : $text . "\n" . $fromText;
         return trim($text);
     }

@@ -2,6 +2,7 @@
   "textManager": {
     "comment": "Comment in VK:",
     "dots": "...",
+      "from": "Message from",
     "read-more": "Read more:"
   }
 }
