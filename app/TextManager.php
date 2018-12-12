@@ -36,7 +36,7 @@ class TextManager
      */
     public static function addFromText($text, $groupSource, $i18n, $prepend)
     {
-        if (isset($groupSource["withLink"])) {
+        if (isset($groupSource["withLink"]) && $groupSource["withLink"]) {
             $fromText = self::createMarkdownLink($groupSource["name"], $groupSource["url"]);
         } else {
             $fromText = $groupSource["name"];
