@@ -1,5 +1,5 @@
 {
-  "textCutter": {
+  "textManager": {
     "comment": "Comment in VK:",
     "dots": "...",
     "read-more": "Read more:"

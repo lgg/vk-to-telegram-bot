@@ -92,18 +92,18 @@ This config section is **optional**. If not set all these variables are equal to
 
 | Parameter             | Type    | Description |
 | ------                | ------  | ------      |
-| textCutter.aggressive | boolean | defines TextPreview-cutting function behavior |
-| textCutter.limit      | integer | uncutted letters limit                        |
+| textManager.aggressive | boolean | defines TextPreview-cutting function behavior |
+| textManager.limit      | integer | uncutted letters limit                        |
 
-| textCutter.aggressive | textCutter.limit | Result |
+| textManager.aggressive | textManager.limit | Result |
 | ------                | ------           | ------ |
 | false                 | *ignored*        | text will be cutted on first space(` `) or till text end |
 | true                  | 3                | text will be cutted on `140+limit` symbol                |
 
 ### Examples and explanations
 
-* [textCutter.aggressive = false](./examples/text-cutter/aggressive-false.md)
-* [textCutter.aggressive = true](./examples/text-cutter/aggressive-true.md)
+* [textManager.aggressive = false](./examples/text-cutter/aggressive-false.md)
+* [textManager.aggressive = true](./examples/text-cutter/aggressive-true.md)
 
 ## Parsing internal VK links
 
@@ -133,7 +133,7 @@ This config section is **optional**. If not set all these variables are equal to
     * [en](../i18n/en.json)
     * [ru](../i18n/ru.json)
 * languages and phrases are stored in `/i18n/`
-* phrases are user for `TextCutter` class: `getTextPreview()`, `read-more`, `comment in VK`
+* phrases are user for `TextManager` class: `getTextPreview()`, `read-more`, `comment in VK`
 * you can create your own language by copying `template.json` and changing it
 
 ## Logging

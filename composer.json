@@ -9,7 +9,7 @@
       "I18N": "app/",
       "Manager": "app/",
       "TelegramApi": "app/",
-      "TextCutter": "app/",
+      "TextManager": "app/",
       "VkApi": "app/",
       "VkLinksParser": "app/"
     }

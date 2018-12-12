@@ -170,7 +170,7 @@ class Manager
 
                         //If we need to append link
                         if ($config["extended"]["needLink"]) {
-                            $message = TextCutter::appendLink($postText, $message, $this->i18n, "true");
+                            $message = TextManager::appendLink($postText, $message, $this->i18n, "true");
                         } else {
                             $message = $postText;
                         }
@@ -201,7 +201,7 @@ class Manager
 
                         //If we have post text - send it
                         if ($postText) {
-                            $message = TextCutter::getTextPreview($postText, $message, $configIndex, $this->i18n);
+                            $message = TextManager::getTextPreview($postText, $message, $configIndex, $this->i18n);
                         }
                     }
 

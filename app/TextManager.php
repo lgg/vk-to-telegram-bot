@@ -1,6 +1,6 @@
 <?php
 
-class TextCutter
+class TextManager
 {
     /**
      * @param string $text
@@ -12,7 +12,7 @@ class TextCutter
      */
     public static function appendLink($text, $link, $i18n, $fromNewLine)
     {
-        return trim($text . ($fromNewLine ? "\n" : " ") . $i18n->get("textCutter", "comment")) . " " . $link;
+        return trim($text . ($fromNewLine ? "\n" : " ") . $i18n->get("textManager", "comment")) . " " . $link;
     }
 
     /**
@@ -26,7 +26,7 @@ class TextCutter
     public static function getTextPreview($text, $link, $configIndex, $i18n)
     {
         //check config
-        $config = Config::getConfigs()[$configIndex]["textCutter"];
+        $config = Config::getConfigs()[$configIndex]["textManager"];
 
         //check if we have 140th symbol
         $i = 139;
@@ -54,6 +54,6 @@ class TextCutter
             $text = substr($text, 0, $i);
         }
 
-        return trim($text) . ($needDots ? $i18n->get("textCutter", "dots") : "") . " " . $i18n->get("textCutter", "read-more") . " " . $link;
+        return trim($text) . ($needDots ? $i18n->get("textManager", "dots") : "") . " " . $i18n->get("textManager", "read-more") . " " . $link;
     }
 }

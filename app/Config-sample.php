@@ -25,7 +25,7 @@ class Config
             "needPostPreview" => true,
             //Bot-manager internal functions params
             "language" => "ru",
-            "textCutter" => [
+            "textManager" => [
                 "aggressive" => false,
                 "limit" => 3
             ],
