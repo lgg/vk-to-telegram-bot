@@ -93,12 +93,12 @@ This config section is **optional**. If not set all these variables are equal to
 | Parameter             | Type    | Description |
 | ------                | ------  | ------      |
 | textManager.aggressive | boolean | defines TextPreview-cutting function behavior |
-| textManager.limit      | integer | uncutted letters limit                        |
+| textManager.limit      | integer | uncut letters limit                           |
 
 | textManager.aggressive | textManager.limit | Result |
 | ------                | ------           | ------ |
-| false                 | *ignored*        | text will be cutted on first space(` `) or till text end |
-| true                  | 3                | text will be cutted on `140+limit` symbol                |
+| false                 | *ignored*        | text will be cut on first space(` `) or till text end |
+| true                  | 3                | text will be cut on `140+limit` symbol                |
 
 ### Examples and explanations
 
