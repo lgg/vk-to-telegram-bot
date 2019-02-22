@@ -198,7 +198,7 @@ class Manager
                 //Set sendMessage parameters
                 $messageParams['disable_web_page_preview'] = isset($config["messageSend"]["disable_web_page_preview"]) ? $config["messageSend"]["disable_web_page_preview"] : false;
                 $messageParams['disable_notification'] = isset($config["messageSend"]["disable_notification"]) ? $config["messageSend"]["disable_notification"] : false;
-                $messageParams['parse_mode'] = "Markdown";
+                $messageParams['parse_mode'] = isset($config["messageSend"]["parse_mode"]) ? $config["messageSend"]["parse_mode"] : 'HTML';
 
                 //Check what type of posting we need
                 if ($config["extended"]["active"]) {
