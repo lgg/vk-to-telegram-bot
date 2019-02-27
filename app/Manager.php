@@ -171,7 +171,7 @@ class Manager
     private function send($response, $telegram, $last, $config, $configIndex)
     {
         //Preload info about VK source
-        if (isset($config["extended"]["needFromText"])) {
+        if (isset($config["extended"]["needFromText"]) && $config["extended"]["needFromText"]) {
             $infoAboutVKSource = self::getInfoAboutVkObjectById($config);
         }
 
@@ -201,21 +201,23 @@ class Manager
                 $messageParams['parse_mode'] = isset($config["messageSend"]["parse_mode"]) ? $config["messageSend"]["parse_mode"] : 'HTML';
 
                 //Check what type of posting we need
-                if ($config["extended"]["active"]) {
+                if (isset($config["extended"]["active"]) && $config["extended"]["active"]) {
 
                     //If we have text in VK post - send it to Telegram
                     if ($postText) {
 
+                        $message = $postText;
+
                         //If we need to append link to original VK post
-                        if ($config["extended"]["needLinkToVKPost"]) {
+                        if (isset($config["extended"]["needLinkToVKPost"]) && $config["extended"]["needLinkToVKPost"]) {
                             $message = TextManager::appendLinkToVKPost($postText, $message, $this->i18n, "true");
-                            //If we need to add link to original VK group
-                        } else if (isset($config["extended"]["needFromText"])) {
+                        }
+
+                        //If we need to add link to original VK group
+                        if (isset($config["extended"]["needFromText"]) && $config["extended"]["needFromText"]) {
                             //If we need to add text about original VK Group
                             $infoAboutVKSource["withLink"] = (isset($config["extended"]["needFromText"]["withLink"]) && $config["extended"]["needFromText"]["withLink"]);
                             $message = TextManager::addFromText($postText, $infoAboutVKSource, $this->i18n, (isset($config["extended"]["needFromText"]["prepend"]) && $config["extended"]["needFromText"]["prepend"]));
-                        } else {
-                            $message = $postText;
                         }
 
                         //Send message
@@ -240,7 +242,7 @@ class Manager
                 } else {
 
                     //Check if need to append post preview
-                    if ($config["needPostPreview"]) {
+                    if (isset($config["needPostPreview"]) && $config["needPostPreview"]) {
 
                         //If we have post text - send it
                         if ($postText) {
