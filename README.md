@@ -1,3 +1,18 @@
+> ⚠️ Current code is a little but outdated, but it could still work ⚠️
+
+---
+
+⬇️⬇️⬇️👇⬇️⬇️⬇️
+
+**🆕 CHECK THIS NEW VERSION: 🆕**
+
+* **https://github.com/Bizordec/vk-to-tgm**
+
+⬆️⬆️⬆️👆⬆️⬆️⬆️
+
+
+---
+
 # VK to Telegram auto-posting Bot 
 
 ## Info
