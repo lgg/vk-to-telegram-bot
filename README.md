@@ -7,6 +7,7 @@
 **🆕 CHECK THIS NEW VERSION: 🆕**
 
 * **https://github.com/Bizordec/vk-to-tgm**
+* also it have a way more functions and supported media-types
 
 ⬆️⬆️⬆️👆⬆️⬆️⬆️
 
